@@ -1,6 +1,43 @@
 <html>
 
+	<head>
+		<link rel="stylesheet" href="stylesheet.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	</head>
+
 	<body>
+
+		<div class="page-container">
+			<div class="header"> 
+				Password Checker
+			</div>
+
+			<div class="left">
+				<div class="input-field">
+					<input id="password-input" type="text" required/>
+					<span class="input-bar"></span>
+					<label>Enter a password...</label>
+				</div>
+
+				<button id="check-button">Check!</button>
+
+				<div id="password-crack-time">
+					It would take ______ to break this password with the currently selected encryption method.
+				</div>
+			</div>
+
+			<div class="right">
+				<select id="cipher-select">
+					<option>Cipher 1</option>
+					<option>Cipher 2</option>
+					<option>Cipher 3</option>
+				</select>
+
+				<div id="cipher-information">
+					Here is where the information will go about the different types of ciphers.
+				</div>
+			</div>
+		</div>
 
 	</body>
 
