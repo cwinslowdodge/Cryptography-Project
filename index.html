@@ -34,7 +34,30 @@
 				</select>
 
 				<div id="cipher-information">
-					Here is where the information will go about the different types of ciphers.
+					<h2>Caesar Cipher</h2>
+					<p>The Caesar cipher, also known as a shift cipher, is one of the simplest forms of encryption. 
+					It is a substitution cipher where each letter in the original message (called the plaintext) is 
+					replaced with a letter corresponding to a certain number of letters up or down in the alphabet.<Br>
+
+					In this way, a message that initially was quite readable, ends up in a form that can not be understood 
+					at a simple glance.<Br>
+
+					For example, here's the Caesar Cipher encryption of a message, using a right shift of 3.<Br>
+
+					Plaintext:  
+					THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+					Ciphertext: 
+					QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD<Br>
+
+					As unreadable as the resulting ciphertext may appear, the Caesar Cipher is one of the weakest 
+					forms of encryption one can employ.<Br>
+
+					The key space is very small. Using a brute force method, one could easily try all (25) possible 
+					combinations in order to decrypt the message without initially knowing the key.
+					The structure of the original plaintext remains intact. This makes the encryption method vulnerable 
+					to frequency analysis - by looking at how often certain characters or sequences of characters appear, 
+					one can discover patterns and potentially discover the key without having to perform a full 
+					brute force search.
 				</div>
 			</div>
 		</div>
