@@ -9,7 +9,7 @@
 
 		<div class="page-container">
 			<div class="header"> 
-				Password Checker
+				<h1>Password Checker</h1>
 			</div>
 
 			<div class="left">
@@ -40,24 +40,17 @@
 					replaced with a letter corresponding to a certain number of letters up or down in the alphabet.<Br>
 
 					In this way, a message that initially was quite readable, ends up in a form that can not be understood 
-					at a simple glance.<Br>
-
-					For example, here's the Caesar Cipher encryption of a message, using a right shift of 3.<Br>
-
-					Plaintext:  
-					THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
-					Ciphertext: 
-					QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD<Br>
-
-					As unreadable as the resulting ciphertext may appear, the Caesar Cipher is one of the weakest 
-					forms of encryption one can employ.<Br>
-
-					The key space is very small. Using a brute force method, one could easily try all (25) possible 
-					combinations in order to decrypt the message without initially knowing the key.
-					The structure of the original plaintext remains intact. This makes the encryption method vulnerable 
-					to frequency analysis - by looking at how often certain characters or sequences of characters appear, 
-					one can discover patterns and potentially discover the key without having to perform a full 
-					brute force search.
+					at a simple glance.
+					<h2>RSA</h2>
+					<p>RSA was first described in 1977 by Ron Rivest, Adi Shamir and Leonard Adleman of the Massachusetts 
+					Institute of Technology. Public-key cryptography, also known as asymmetric cryptography, uses two 
+					different but mathematically linked keys, one public and one private. The public key can be shared 
+					with everyone, whereas the private key must be kept secret. In RSA cryptography, both the public 
+					and the private keys can encrypt a message; the opposite key from the one used to encrypt a message 
+					is used to decrypt it. This attribute is one reason why RSA has become the most widely used 
+					asymmetric algorithm: It provides a method of assuring the confidentiality, integrity, authenticity 
+					and non-reputability of electronic communications and data storage.
+					<h3>Still working on Diffie-Hellman</h3>
 				</div>
 			</div>
 		</div>
