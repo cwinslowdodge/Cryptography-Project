@@ -22,7 +22,7 @@ var alternateTimes = function(time) {
 	if(time > 5) return "The time it would take you to walk to the kitchen";
 	if(time > 1) return "The amount of time it takes your heart to beat once";
 	if(time > .5) return "The amount of time it would take you to blink";
-	if(time < .05) return "The amount of time it would take a hummingbird to flap its wings"
+	if(time >= 0) return "The amount of time it would take a hummingbird to flap its wings"
 }
 
 var convertUnits = function(seconds) {

@@ -1,9 +1,10 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #E6E6E6;
+	background-color: #90A6E3;
 	font-family: Roboto;
 	font-size: 20px;
+	color: #000;
 }
 
 .input-field {
@@ -32,7 +33,7 @@ body {
 	height: 2px; 
 	width: 0;
 	position: absolute;
-	background: #5264AE; 
+	background: #8AEC96; 
 	transition: 0.2s ease all; 
 }
 .input-bar:before {
@@ -54,6 +55,7 @@ input:focus ~ label, input:valid ~ label {
 input {
 	border: none;
 	background-color: inherit;
+	color: inherit;
 }
 
 input:focus {
@@ -73,6 +75,8 @@ input:focus {
 	line-height: 100px;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	font-weight: 600;
+	background-color: #5CDF6C;
+	color: #000;
 }
 
 .left {
