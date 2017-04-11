@@ -2,7 +2,7 @@ var caesarDescription = "The Caesar cipher, also known as a shift cipher, is one
 
 var rsaDescription = "RSA was first described in 1977 by Ron Rivest, Adi Shamir and Leonard Adleman of the Massachusetts Institute of Technology. Public-key cryptography, also known as asymmetric cryptography, uses two different but mathematically linked keys, one public and one private. The public key can be shared with everyone, whereas the private key must be kept secret. In RSA cryptography, both the public and the private keys can encrypt a message; the opposite key from the one used to encrypt a message is used to decrypt it. This attribute is one reason why RSA has become the most widely used asymmetric algorithm: It provides a method of assuring the confidentiality, integrity, authenticity and non-reputability of electronic communications and data storage.";
 
-var diffieHellmanDescription = "Description in progress";
+var diffieHellmanDescription = "Diffie-Hellman key exchange, also called exponential key exchange, is a method of digital encryption that uses numbers raised to specific powers to produce decryption keys on the basis of components that are never directly transmitted, making the task of a would-be code breaker mathematically overwhelming.";
 
 //This is the amount of time it takes for an *average* computer to complete 1 operation.
 var timeFunctionConstant = .03149;
