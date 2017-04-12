@@ -138,6 +138,38 @@ input:focus {
 	text-indent: 2em;
 }
 
+#password-strength {
+	width: calc(100% + 20px);
+	background-color: black;
+	height: 10px;
+	margin-top: -10px;
+	margin-left: -10px;
+	box-sizing: border-box;
+}
+
+div[id^="strength-"] {
+	box-sizing: border-box;
+	width: calc(100% / 5);
+	background-color: gray;
+	height: 100%;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	border: 1px solid white;
+}
+
+div[id^="strength-"].highlight {
+	box-sizing: border-box;
+	width: calc(100% / 5);
+	background-color: green;
+	height: 100%;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	border: 1px solid white;
+	transition: background-color .5s linear;
+}
+
 
 
 

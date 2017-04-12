@@ -41,7 +41,7 @@ var PasswordChecker = {
 		dropDown:    document.getElementById('cipher-select'),
 		password:    document.getElementById('password-input'),
 		checkButton: document.getElementById('check-button'),
-		crackTime:   document.getElementById('password-crack-time'),
+		crackTime:   document.getElementById('password-crack-blurb'),
 
 		tabs: {
 			caesar: document.getElementById('caesar-cipher-info'),
