@@ -36,12 +36,23 @@ var convertUnits = function(seconds) {
 	if ((seconds /= 4) > 12) return "about " + seconds.toFixed(2) + " years";
 }
 
+var strengthValues = function(strength) {
+	if(strength == 0) return "Your password is not strong at all.";
+	if(strength == 1) return "Your password is fairly week; try using a combination of uppercase and lowercase letters";
+	if(strength == 2) return "Your password is weak; try including some numbers";
+	if(strength == 3) return "Your password is strong; try adding some symbols to make it even stronger";
+	if(strength == 4) return "Your password is fairly strong; make sure your password is at least 10 characters long to get the most out of a password";
+
+	return "Your password is very strong!";
+}
+
 var PasswordChecker = {
 	fields: {
 		dropDown:    document.getElementById('cipher-select'),
 		password:    document.getElementById('password-input'),
 		checkButton: document.getElementById('check-button'),
 		crackTime:   document.getElementById('password-crack-blurb'),
+		strength:    document.getElementById('password-strength-text'),
 
 		tabs: {
 			caesar: document.getElementById('caesar-cipher-info'),
@@ -108,6 +119,18 @@ var PasswordChecker = {
 		this._populateTab(this.ciphers.diffieHellman, this.fields.tabs.diffieHellman);		
 	},
 
+	_populateStrengthBar: function(strength) {
+		if(strength < 0 || strength > 5) throw "Invalid Strength Value";
+
+		for(var i = 1; i <= 5; i++) {
+			var bar = document.getElementById('strength-' + i);
+			bar.classList.remove('highlight')
+			if(i <= strength) {
+				bar.classList.add('highlight')
+			}
+		}
+	},
+
 	_changeCipherTab: function(e) {
 		for (var tab in this.fields.tabs) {
 			this.fields.tabs[tab].classList.add('hidden');
@@ -118,7 +141,8 @@ var PasswordChecker = {
 	},
 
 	_checkPasswordStrength: function() {
-		var passwordLength = this.fields.password.value.length;
+		var password = this.fields.password.value;
+		var passwordLength = password.length;
 		var crackTime = this.ciphers[Object.keys(this.ciphers)[this.selectedCipher || 0]].timeFunction(passwordLength);
 		var passwordString = "It would take " +
 				     convertUnits(crackTime) + 
@@ -128,6 +152,25 @@ var PasswordChecker = {
 				     alternateTimes(crackTime);
 
 		this.fields.crackTime.innerHTML = passwordString;
+		this._populateStrengthBar(this._checkPasswordTextStrength(password));
+	},
+
+	_checkPasswordTextStrength: function(text) {
+		var strength = 0;
+		var lower  = /[a-z]/;
+		var upper  = /[A-Z]/;
+		var number = /[0-9]/;
+		var symbol = /[!@#$%^&*?]/;
+
+		if(text.length >= 10) strength++;
+		if(lower.test(text))  strength ++;
+		if(upper.test(text))  strength ++;
+		if(number.test(text)) strength++;
+		if(symbol.test(text)) strength++;
+
+		this.fields.strength.innerHTML = strengthValues(strength);
+
+		return strength;
 	}
 };
 

@@ -138,6 +138,10 @@ input:focus {
 	text-indent: 2em;
 }
 
+#password-crack-blurb {
+	margin-top: 1em;
+}
+
 #password-strength {
 	width: calc(100% + 20px);
 	background-color: black;
@@ -145,6 +149,10 @@ input:focus {
 	margin-top: -10px;
 	margin-left: -10px;
 	box-sizing: border-box;
+}
+
+#password-strength-text {
+	margin-top: 1em;
 }
 
 div[id^="strength-"] {
@@ -161,7 +169,7 @@ div[id^="strength-"] {
 div[id^="strength-"].highlight {
 	box-sizing: border-box;
 	width: calc(100% / 5);
-	background-color: green;
+	background-color: #5CDF6C;
 	height: 100%;
 	display: inline-block;
 	padding: 0;
