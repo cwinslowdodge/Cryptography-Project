@@ -4,6 +4,8 @@ var rsaDescription = "RSA was first described in 1977 by Ron Rivest, Adi Shamir 
 
 var diffieHellmanDescription = "Diffie-Hellman key exchange, also called exponential key exchange, is a method of digital encryption that uses numbers raised to specific powers to produce decryption keys on the basis of components that are never directly transmitted, making the task of a would-be code breaker mathematically overwhelming.";
 
+var bruteForceDescription = "Brute force is a method of password cracking that tries every possible combination of characters until a password is guessed correctly. A lot of logins prevent against this kind of attack (giving you only X number of login attempts, for example), but it is still a possibility regardless. This is not very fast, as brute force involves actually putting in the password and seeing it if was correct. This is the slowest of the password cracking attempts but is 100% successful given enough time.";
+
 //This is the amount of time it takes for an *average* computer to complete 1 operation.
 var timeFunctionConstant = .03149;
 
@@ -57,7 +59,8 @@ var PasswordChecker = {
 		tabs: {
 			caesar: document.getElementById('caesar-cipher-info'),
 			rsa: document.getElementById('rsa-info'),
-			diffieHellman: document.getElementById('diffie-hellman-info')
+			diffieHellman: document.getElementById('diffie-hellman-info'),
+			bruteForce: document.getElementById('brute-force-info')
 		}
 	},
 
@@ -81,6 +84,13 @@ var PasswordChecker = {
 			value: 2,
 			description: diffieHellmanDescription,
 			timeFunction: function(size) {return Math.pow(2, (size * 8)) * timeFunctionConstant}
+		},
+
+		bruteForce: {
+			title: "Brute Force",
+			value: 3,
+			description: bruteForceDescription,
+			timeFunction: function(size) {return Math.pow(256, size) * (timeFunctionConstant + 1)}
 		}
 	},
 
@@ -105,6 +115,7 @@ var PasswordChecker = {
 		this._populateOption(this.ciphers.caesar);
 		this._populateOption(this.ciphers.rsa);
 		this._populateOption(this.ciphers.diffieHellman);
+		this._populateOption(this.ciphers.bruteForce);
 	},
 
 	_populateTab: function(cipherNode, domNode) {
@@ -117,6 +128,7 @@ var PasswordChecker = {
 		this._populateTab(this.ciphers.caesar, this.fields.tabs.caesar);
 		this._populateTab(this.ciphers.rsa, this.fields.tabs.rsa);	
 		this._populateTab(this.ciphers.diffieHellman, this.fields.tabs.diffieHellman);		
+		this._populateTab(this.ciphers.bruteForce, this.fields.tabs.bruteForce);	
 	},
 
 	_populateStrengthBar: function(strength) {
