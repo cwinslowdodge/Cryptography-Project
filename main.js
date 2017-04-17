@@ -180,11 +180,10 @@ var caesarCipher = function() {
         return;
     }
 
-    var result = '<ol>';
-
+    var result = '';
     var length = message.length;
     for(var i = 0; i <= 26; i++) {
-        result += '<li>';
+        result += i + ') ';
         for (var j = 0; j < length; j++) {
             var asciiCode = message.charCodeAt(j);
             if ((asciiCode >= 65) && (asciiCode <= 90))
@@ -196,10 +195,9 @@ var caesarCipher = function() {
 
             result += String.fromCharCode(asciiCode);
         }
-        result += '</li>';
+        result += '<br>'
     }
 
-    result += '</ol>';
 
     $('#caesar-output').html(result);
 }
