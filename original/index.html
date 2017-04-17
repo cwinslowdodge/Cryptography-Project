@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page-container">
+    <div class="header">
+        <h1>Password Checker</h1>
+    </div>
+
+    <div class="left">
+        <div class="input-field">
+            <input id="password-input" type="text" required/>
+            <span class="input-bar"></span>
+            <label>Enter a password...</label>
+        </div>
+
+        <button id="check-button">Check!</button>
+
+        <div id="password-crack-time">
+            <div id="password-strength">
+                <div id="strength-1"></div><div id="strength-2"></div><div id="strength-3"></div><div id="strength-4"></div><div id="strength-5"></div>
+            </div>
+
+            <div id="password-strength-text">
+            </div>
+
+            <div id="password-crack-blurb">
+                Please type in a password
+            </div>
+        </div>
+    </div>
+
+    <div class="right">
+        <select id="cipher-select">
+
+        </select>
+
+        <div id="cipher-information">
+            <div id="caesar-cipher-info" class="tab"></div>
+            <div id="rsa-info" class="tab hidden"></div>
+            <div id="diffie-hellman-info" class="tab hidden"></div>
+            <div id="brute-force-info" class="tab hidden"></div>
+        </div>
+    </div>
+</div>
+
+<script src="PasswordChecker.js"></script>
+
+</body>
+
+</html>

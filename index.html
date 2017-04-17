@@ -1,56 +1,239 @@
+<!doctype html>
 <html>
 
 	<head>
-		<link rel="stylesheet" href="stylesheet.css">
+		<!-- fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+		<!-- jquery -->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<!-- custom -->
+		<link rel="stylesheet" href="stylesheet.css">
+		<script type="text/javascript" src="main.js"></script>
 	</head>
 
 	<body>
 
-		<div class="page-container">
-			<div class="header"> 
-				<h1>Password Checker</h1>
-			</div>
-
-			<div class="left">
-				<div class="input-field">
-					<input id="password-input" type="text" required/>
-					<span class="input-bar"></span>
-					<label>Enter a password...</label>
-				</div>
-
-				<button id="check-button">Check!</button>
-				
-				<div id="password-crack-time">
-					<div id="password-strength">
-						<div id="strength-1"></div><div id="strength-2"></div><div id="strength-3"></div><div id="strength-4"></div><div id="strength-5"></div>
-					</div>
-
-					<div id="password-strength-text">
-					</div>
-
-					<div id="password-crack-blurb">
-						Please type in a password
-					</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 header">
+					<h1>Password Strength Checker</h1>
 				</div>
 			</div>
 
-			<div class="right">
-				<select id="cipher-select">
-					
-				</select>
+			<br>
 
-				<div id="cipher-information">
-					<div id="caesar-cipher-info" class="tab"></div>
-					<div id="rsa-info" class="tab hidden"></div>
-					<div id="diffie-hellman-info" class="tab hidden"></div>
-					<div id="brute-force-info" class="tab hidden"></div>
+			<div class="row input">
+				<div class="col-md-2">
+				</div>
+				<div class="col-md-8">
+					<div class="form-group">
+						<input id="password-input" type="password" value="" placeholder="Check a password here..." name="password" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-2">
 				</div>
 			</div>
+
+			<br>
+
+			<div id="output">
+				<div class="row">
+					<div class="col-md-2">
+					</div>
+					<div class="col-md-8">
+						<div id="password-strength-bar"></div>
+					</div>
+					<div class="col-md-2">
+					</div>
+				</div>
+
+				<br>
+
+				<div class="row">
+					<div class="col-md-2">
+					</div>
+					<div class="col-md-8">
+						<div class="password-time"></div>
+					</div>
+					<div class="col-md-2">
+					</div>
+				</div>
+
+				<br>
+
+				<div class="row">
+					<div class="col-md-2">
+					</div>
+					<div class="col-md-8">
+						<div class="password-strength-tips"><p></p></div>
+					</div>
+					<div class="col-md-2">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12 header">
+					<h1>Password Information</h1>
+				</div>
+			</div>
+
+			<br>
+
+			<div class="row">
+				<div class="col-md-2">
+				</div>
+				<div class="col-md-8">
+					<div class="password-information">
+						<p>
+							The most common way for a password to be "hacked" is by the password's owner revealing the
+							password to another individual. In lieu of this happening, passwords can be quite secure.
+							As long as the website you're logging into has a secure connection, properly stores
+							passwords in their databases, and prevents hackers from accessing their password databases,
+							it is unlikely your password will be hacked or stolen.
+						</p>
+						<p>
+							In the real world, however, there are problems with companies being hacked, and the tables
+							in which encrypted passwords are stored being exposed. When this happens, hackers can try
+							to find a user's password by encrypting a password guess and seeing if it matches the
+							encrypted value in the table. This is often done in a brute force method, with every
+							possible password, from least complicated to most, being attempted until the correct one is
+							found. With modern computers and because this process is highly parallelizable (many
+							computers can try to crack the same password at once), it is important to have a long and
+							complicated password. This way, hackers will not be able to guess your password, even if
+							they know the encrypted value.
+						</p>
+					</div>
+				</div>
+				<div class="col-md-2">
+				</div>
+			</div>
+
+			<br>
+
+			<div class="row">
+				<div class="col-md-12 header">
+					<h1>Methodology</h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2">
+				</div>
+				<div class="col-md-8">
+					<div class="methodology">
+						<p>
+							The formula we used for estimating how long it would take to break a password is very
+							straightforward. If you are familiar with JavaScript, you can view the source of this
+							webpage and see it for yourself.
+						</p>
+						<p>
+							The time it takes to break a password is dependant on the length and complexity of the
+							password, and the number of encryption or hashes per second the hacker's computer can
+							attempt. The length and complexity is defined by the number of possible combinations of
+							characters. This is the number of characters in the character set raised to the power of
+							the number of characters in the password. This number, the number of possible password
+							combinations, is divided by the number of hashes that can be done per second, which we
+							estimated to be 10 billion, and again divided by 2, because on the correct one will be found
+							in the middle of the set of possible combinations. In order to obtain the character set for
+							the password, we considered 4 separate character sets.
+						</p>
+						<ul>
+							<li>Lowercase Letters [a-z] : 26 characters</li>
+							<li>Uppercase Letters [A-Z] : 26 characters</li>
+							<li>Numbers [0-9] : 10 characters</li>
+							<li>Special Characters [^a-zA-Z0-9] : 31 characters (remaining printable ASCII characters)</li>
+						</ul>
+						<p>
+							The character set of the password was calculated to be the sum of cardinalities of the
+							characters sets sharing any characters with the password.
+						</p>
+					</div>
+				</div>
+				<div class="col-md-2">
+				</div>
+			</div>
+
+			<br>
+
+			<div class="row">
+				<div class="col-md-12 header">
+					<h1>Encryption 101</h1>
+				</div>
+			</div>
+
+			<br>
+
+			<div class="row">
+				<div class="col-md-2">
+				</div>
+				<div class="cold-md-8 ciphers">
+					<ul>
+						<li><a href="#caesar-cipher">Caesar Cipher</a></li>
+						<li><a href="#rsa">RSA</a></li>
+						<li><a href="#diffie-hellman">Diffie-Hellman Key Exchange</a></li>
+					</ul>
+					<div id="caesar-cipher">
+						<div class="row input">
+							<div class="col-md-2">
+							</div>
+							<div class="col-md-8">
+								<div class="form-group">
+									<input id="caesar-input" type="text" value="" placeholder="Type a message here..." name="caesar" class="form-control">
+								</div>
+							</div>
+							<div class="col-md-2">
+							</div>
+						</div>
+						<p>
+							The Caesar cipher, also known as a shift cipher, is one of the simplest
+							forms of encryption. It is a substitution cipher where each letter in the original message
+							(called the plaintext) is replaced with a letter corresponding to a certain number of letters
+							up or down in the alphabet. In this way, a message that initially was quite readable, ends up
+							in a form that can not be understood at a simple glance. Below are examples of Caesar
+							ciphers of the letters in the message typed above. You'll notice that the first and last
+							ciphers (shifts of 0 letters and 26 letters), are both copies of the original message, as
+							there are 26 letters in the alphabet.
+						</p>
+						<div id="caesar-output">
+
+						</div>
+					</div>
+					<div id="rsa">
+						<p>
+							RSA was first described in 1977 by Ron Rivest, Adi Shamir and Leonard Adleman of the
+							Massachusetts Institute of Technology. Public-key cryptography, also known as asymmetric
+							cryptography, uses two different but mathematically linked keys, one public and one private.
+							The public key can be shared with everyone, whereas the private key must be kept secret.
+							In RSA cryptography, both the public and the private keys can encrypt a message; the opposite
+							key from the one used to encrypt a message is used to decrypt it. This attribute is one reason
+							why RSA has become the most widely used asymmetric algorithm: It provides a method of assuring
+							the confidentiality, integrity, authenticity and non-reputability of electronic communications
+							and data storage.
+						</p>
+					</div>
+					<div id="diffie-hellman">
+						<p>
+							Diffie-Hellman key exchange, also called exponential key exchange, is a
+							method of digital encryption that uses numbers raised to specific powers to produce decryption
+							keys on the basis of components that are never directly transmitted, making the task of a
+							would-be code breaker mathematically overwhelming."
+						</p>
+					</div>
+				</div>
+				<div class="col-md-2">
+				</div>
+			</div>
+
 		</div>
-
-		<script src="PasswordChecker.js"></script>
-
 	</body>
 
 </html>
