@@ -5,11 +5,6 @@ var containsNumbers = false;
 var containsSpecial = false;
 var color = "white";
 var strength = 0;
-var caesarDescription = '<p>The Caesar cipher, also known as a shift cipher, is one of the simplest forms of encryption.' +
-    ' It is a substitution cipher where each letter in the original message (called the plaintext) is replaced with a ' +
-    'letter corresponding to a certain number of letters up or down in the alphabet. In this way, a message that ' +
-    'initially was quite readable, ends up in a form that can not be understood at a simple glance. Below are examples ' +
-    'of Caesar ciphers of the letters of your password or message typed above.</p>'
 
 $(function() {
     $("#password-strength-bar").progressbar();
@@ -47,6 +42,7 @@ var checkPassword = function() {
         $(".password-time").text('It would take a hacker approximately ' + timeInUnits + ' to crack this password,' +
             ' or ' + timeDescription + '.');
 
+        $(".password-strength-tips").html('');
         if (!(containsSpecial && containsUppercase && containsLowercase && containsNumbers)) {
             var warning = '<ul>';
             if (containsLowercase ^ containsUppercase) {
