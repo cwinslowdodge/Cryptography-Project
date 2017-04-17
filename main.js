@@ -113,7 +113,7 @@ var getPossibleCharacters = function(password) {
 var convertUnits = function(seconds) {
     if (seconds < 1) return seconds.toFixed(2) + " seconds"
     if (seconds < 4) return seconds.toFixed(1) + " seconds"
-    if (seconds < 60) return "about " + seconds + " seconds";
+    if (seconds < 60) return "about " + seconds.toFixed(0) + " seconds";
     if ((seconds /= 60) < 60) return "about " + seconds.toFixed(2) + " minutes";
     if ((seconds /= 60) < 24) return "about " + seconds.toFixed(2) + " hours";
     if ((seconds /= 24) < 7) return "about " + seconds.toFixed(2) + " days";
