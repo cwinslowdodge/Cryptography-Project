@@ -1,0 +1,136 @@
+<html>
+
+	<head>
+		<link rel="stylesheet" href="stylesheet.css">
+	</head>
+
+	<body>
+
+		<div class="header">
+			<div class="nav-bar">
+				<div class="link-container">
+					<a href="./index.html">Home</a>
+				</div>
+
+				<div class="link-container">
+					<a href="./encryption.html">Encryption</a>
+				</div>
+
+				<div class="link-container">
+					<a href="#">Hashing</a>
+				</div>
+
+				<div class="link-container">
+					<a href="#">Passwords</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="content">
+
+			<p>
+				Encryption is a way for us to send information back and forth without it being read by somebody else. Many different algorithms exist to encrypt data, some of them being the Caesar Cipher and RSA Encryption. Encryption can simply be a way of scrambling message text as they are or going as far as to make different mathematical keys in order to encrypt data to obfuscate it beyond recognition. Both RSA and Diffie-Hellman use these mathematical keys to encrypt data; how they work and subsequently how they would be broken varies for each algorithm. You can read more about these different encryption algorithms below by clicking on the different section buttons.
+			</p>
+
+			</br>
+
+			<div class="tab-list">
+				<div class="tab-navigation">
+					<div id="selector-caesar" class="tab-selector selected">
+						Caesar
+					</div>
+
+					<div id="selector-rsa" class="tab-selector">
+						RSA
+					</div>
+
+					<div id="selector-diffie-hellman" class="tab-selector">
+						Diffie Hellman
+					</div>
+				</div>
+
+				<div class="tab-content">
+					<div id="tab-caesar" class="tab">
+						<div class="tab-header">
+							Caesar Cipher
+						</div>
+						<p>The Caesar cipher, also known as a shift cipher, is one of the simplest forms of encryption. It is a substitution cipher where each letter in the original message (called the plaintext) is replaced with a letter corresponding to a certain number of letters up or down in the alphabet. In this way, a message that initially was quite readable, ends up in a form that can not be understood at a simple glance.
+						</p>
+						<P>
+						Since the Caesar cipher doesn't encrypt messages much beyond just shifting the letters all by the same value, it is not very secure and thus shouldn't be used to encrypt anything meaningful. For a modern computer, it would only take a moment for it to figure out anything you've sent.
+						</p>
+					</div>
+
+					<div id="tab-rsa" class="tab hidden">
+						<div class="tab-header">
+							RSA
+						</div>
+						<p>
+						RSA was first described in 1977 by Ron Rivest, Adi Shamir and Leonard Adleman of the Massachusetts Institute of Technology. Public-key cryptography, also known as asymmetric cryptography, uses two different but mathematically linked keys, one public and one private. The public key can be shared with everyone, whereas the private key must be kept secret. In RSA cryptography, both the public and the private keys can encrypt a message; the opposite key from the one used to encrypt a message is used to decrypt it. This attribute is one reason why RSA has become the most widely used asymmetric algorithm: It provides a method of assuring the confidentiality, integrity, authenticity and non-reputability of electronic communications and data storage.
+						</p>
+						<p>
+						Since RSA uses factors of very large primes, it is extremely difficult to find the private key (this is known as the discrete d-th root problem) and can take a very very long time with a lengthy message. This is another reason why RSA is used so widely today.
+						</p>
+					</div>
+
+					<div id="tab-diffie-hellman" class="tab hidden">
+						<div class="tab-header">
+							Diffie Hellman
+						</div>
+						<p>
+						Diffie-Hellman key exchange, also called exponential key exchange, is a method of digital encryption that uses numbers raised to specific powers to produce decryption keys on the basis of components that are never directly transmitted, making the task of a would-be code breaker mathematically overwhelming.
+						</p>
+						<p>
+						The way Diffie-Hellman generates keys is slightly different from RSA, and because of this the only known way to get the private key is through the discrete logarithm problem. Because of this, it would take a very long time to figure out a key generated via Diffie-Hellman and is part of the reason why Diffie-Hellman is widely used today for key generation.
+						</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<script>
+			var attachEventHandlers = function() {
+				var caesar = document.getElementById('selector-caesar');
+				var rsa = document.getElementById('selector-rsa');
+				var diffie = document.getElementById('selector-diffie-hellman');
+
+				caesar.addEventListener("click", function() {
+					toggleTab('caesar');
+				});
+				rsa.addEventListener("click", function() {
+					toggleTab('rsa');
+				});
+				diffie.addEventListener("click", function() {
+					toggleTab('diffie-hellman');
+				});
+			};
+
+			var toggleTab = function(toggle) {
+				var caesar = document.getElementById('tab-caesar');
+				var rsa = document.getElementById('tab-rsa');
+				var diffie = document.getElementById('tab-diffie-hellman');
+				var sCaesar = document.getElementById('selector-caesar');
+				var sRsa = document.getElementById('selector-rsa');
+				var sDiffie = document.getElementById('selector-diffie-hellman');
+
+				caesar.classList.add("hidden");
+				rsa.classList.add("hidden");
+				diffie.classList.add("hidden");
+				sCaesar.classList.remove("selected");
+				sRsa.classList.remove("selected");
+				sDiffie.classList.remove("selected");
+
+				document.getElementById('tab-' + toggle).classList.remove("hidden");
+				document.getElementById('selector-' + toggle).classList.add("selected");
+			};
+
+			(function() {
+				attachEventHandlers();
+			})();
+
+		</script>
+
+	</body>
+
+</html>
