@@ -34,6 +34,7 @@ body {
 	margin-top: 1em;
 	background-color: #DEDEDE;
 	padding: 1em;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .tab p {
@@ -50,14 +51,17 @@ body {
 }
 
 .tab-selector {
+	padding: .5em 1em;
 	display: inline-block;
-	margin-bottom: 1em;
-	margin-right: 1em;
 	cursor: pointer;
+}
+
+.tab-selector.selected {
+	background-color: white;
 }
 
 .tab-header {
 	font-weight: bold;
-	border-bottom: 1px solid black;
 	margin-bottom: 1em;
+	width: 25%;
 }

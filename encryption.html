@@ -30,7 +30,7 @@
 
 			<div class="tab-list">
 				<div class="tab-navigation">
-					<div id="selector-caesar" class="tab-selector">
+					<div id="selector-caesar" class="tab-selector selected">
 						Caesar
 					</div>
 
@@ -95,12 +95,19 @@
 				var caesar = document.getElementById('tab-caesar');
 				var rsa = document.getElementById('tab-rsa');
 				var diffie = document.getElementById('tab-diffie-hellman');
+				var sCaesar = document.getElementById('selector-caesar');
+				var sRsa = document.getElementById('selector-rsa');
+				var sDiffie = document.getElementById('selector-diffie-hellman');
 
 				caesar.classList.add("hidden");
 				rsa.classList.add("hidden");
 				diffie.classList.add("hidden");
+				sCaesar.classList.remove("selected");
+				sRsa.classList.remove("selected");
+				sDiffie.classList.remove("selected");
 
 				document.getElementById('tab-' + toggle).classList.remove("hidden");
+				document.getElementById('selector-' + toggle).classList.add("selected");
 			};
 
 			(function() {
