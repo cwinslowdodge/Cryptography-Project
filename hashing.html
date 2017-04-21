@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <div class="header">
+        <div class="nav-bar">
+            <div class="link-container">
+                <a href="./index.html">Home</a>
+            </div>
+
+            <div class="link-container">
+                <a href="./encryption.html">Encryption</a>
+            </div>
+
+            <div class="link-container">
+                <a href="./hashing.html">Hashing</a>
+            </div>
+
+            <div class="link-container">
+                <a href="./password.html">Passwords</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h3>Hashing</h3>
+        <p>
+            While encryption is used to ensure that information is made secret in order to be read by parties who have
+            the key, hashing is used to ensure that information is made secret and never read by anyone.
+        </p>
+        <p>
+            A cryptographic hash function is the official term for a hashing method used to securely encode information
+            that no one should ever read or know. Cryptographic hash functions have several properties that allow them
+            to be useful in internet security.
+        </p>
+        <ul>
+            <li>It is computationally infeasible to determine an input based on the output.</li>
+            <li>Any one specific input will always produce the same output.</li>
+            <li>It is computationally infeasible to find two inputs that produce the same output.</li>
+            <li>Minor changes to the input result in entirely different outputs.</li>
+            <li>It is relatively fast to compute a cryptographic hash function.</li>
+        </ul>
+        <p>
+            Because of these properties, hashing is used for verifying people's passwords. When an account is created
+            on a website, the account's password is hashed and stored in a database. When an attempt to login to that
+            account is made. The password submitted with the login attempt is hashed and compared to the output originally
+            stored in the website's database. If these two values match, the password is correct.
+        </p>
+        <p>
+            By using a cryptographic hash function, the website never needs to store a user's password, and the password
+            is kept secret.
+        </p>
+        <h3>Salt</h3>
+        <p>
+            Salt is a random of string of data stored with a password hash's output in a database. When a
+            user makes the password, a salt is generated and added to the password before it is hashed. When additional
+            login attempts are made, the salt is always added to the password before hashing.
+        </p>
+        <p>
+            Because website security is never perfect, salt is an extra precaution used when hashing passwords to keep them
+            more secure. If a hacker is able to get access to the database of hashed password, the salt helps slow
+            down the hacker from quickly breaking passwords. If multiple users share the same password, a hacker would
+            be able to discover all the users by breaking just one of the passwords. However, with the passwords being salted,
+            even if users have the same password, they each have a different salt, so the hacker is unable to tell that
+            users share the same password.
+        </p>
+        <h3>How Passwords are Broken</h3>
+        <p>
+            The most common way for a password to be broken is by the password's owner revealing the
+            password to another individual. In the absence of this happening, passwords can be quite secure.
+            As long as the website you're logging into has a secure connection, properly stores
+            passwords in their databases, and prevents hackers from accessing their password databases,
+            it is unlikely your password will be broken.
+        </p>
+        <p>
+            In the real world, however, there are problems with companies being hacked, and the tables
+            in which hashing passwords are stored being exposed. When this happens, hackers try
+            to find a user's password by hashing a password guess and seeing if it matches the
+            password's hashed value in the table. This is often done in a brute force method, with every
+            possible password, from least complicated to most, being attempted until the correct one is
+            found. With modern computers and because this process is highly parallelizable (many
+            processors can try to guess the same password at once), it is important to have a long and
+            complicated password. This way, hackers will not be able to guess your password, even if
+            they know the hashed output.
+        </p>
+    </div>
+
+</body>
+</html>
