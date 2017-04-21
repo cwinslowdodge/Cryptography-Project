@@ -1,0 +1,45 @@
+<html>
+
+	<head>
+		<link rel="stylesheet" href="stylesheet.css">
+	</head>
+
+	<body>
+
+		<div class="header">
+			<div class="nav-bar">
+				<div class="link-container">
+					<a href="./index.html">Home</a>
+				</div>
+
+				<div class="link-container">
+					<a href="./encryption.html">Encryption</a>
+				</div>
+
+				<div class="link-container">
+					<a href="./hashing.html">Hashing</a>
+				</div>
+
+				<div class="link-container">
+					<a href="./passwords.html">Passwords</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="content">
+			<p>
+				Hashing is another way of storing sensitive information. Instead of being a two-way street, however, hashing is a method of encryption that only goes one way. This is especially good for keeping sensitive information like passwords safe. There are several different methods of hashing; you may have heard the SHA-X algorithms. Currently, we're on SHA-2 and this is what's being used to store a majority of passwords.
+			</p>
+			<p>
+			So how does it work? Hashing is a method of turning your string of characters into a shorter, fixed length key that represents what your information was originally. You can make a simple hash algorithm by simply using modular arithmetic; first you turn your password into a number. This number can be a combination of all of the ASCII values in your string, or some other derivation you've come up with to transform your string into an integer. Then, you simply take your integer modulo your key size and you have a representation of your original string that cannot be converted back via the methods of decryption used in methods like RSA, etc.
+			</p>
+			<p>
+			Unfortunately, the method described above is not the most secure as it can lead to a lot of collisions. Collisions are when two strings of text end up being stored in the same spot. If we label every letter of the alphabet, starting with A as 1 and so on, we can easily show an example of this. A + B would be 3, but just the letter C alone would be 3. We can see right away that, thought AB is a much different string from C, we will end up representing both of these strings as 3. Of course, there are better hashing algorithms out there, but a lot of the math involved gets very complicated and hard to understand, so we're not going to go over it here.
+			</p>
+			<p>
+			So how would one break information stored through a hash? It turns out, it's actually fairly complicated. Since, most of the time, passwords are stored as their hash and not their plain text, you can't simply just get a hold of the password files from the database and go on your way. To test against one password, you need to do what's called "brute force" and try every possible combination of characters, feed them into the password field and have it tell you if it's correct or not. This can take a very, very long time. Even increasing the length of your password by one character drastically increases the amount of time it would require to break it by brute force. This is why it's encouraged that your password be 8-15 characters long or longer so that breaking it via brute force isn't an option.
+			</p>
+		</div>
+
+	</body>
+</html>

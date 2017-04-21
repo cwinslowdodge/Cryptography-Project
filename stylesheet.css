@@ -65,3 +65,12 @@ p {
 	margin-bottom: 1em;
 	width: 25%;
 }
+
+#password-input {
+	padding: .25em;
+
+}
+
+label {
+	font-weight: bold;
+}
